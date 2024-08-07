@@ -27,7 +27,7 @@ def list_files_scandir(path='.'):
 
  
 # Specify the directory path you want to start from
-directory_path = 'example_path/files'
+directory_path = 'example_path'
 if os.path.exists(directory_path):
     print(os.listdir(directory_path))
 list_files_scandir(directory_path)
@@ -38,20 +38,20 @@ for file in files:
 
 print(f"\nNumber of files to be printed: {len(files)}, pages: {pages}\n")
 
-print = input("Print? y/n\n")
-if print == "y":
-    print = True
+print_tag = input("Print? y/n\n")
+if print_tag == "y":
+    print_tag = True
 else:
-    print = False
+    print_tag = False
 
 # Loop through list and print the files
-if print:
+if print_tag:
     print("Printing...")
     for file in files:
         win32api.ShellExecute (
         0,
         "print",
-        str(file),
+        str(file[0]),
 
         win32print.GetDefaultPrinter(),
         ".",
